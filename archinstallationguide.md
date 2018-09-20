@@ -31,8 +31,8 @@ To create them, use 'p' to check the current partition table, 'd' to delete, and
 <br>
 4. Mount the partitions:
 
-- `mkdir -p /mnt/boot`
 - `mount /dev/sdxy /mnt` for the root partition (ext4 file system)
+- `mkdir /mnt/boot`
 - `mount /dev/sdxy /mnt/boot` for the ESP
 
 <br>
@@ -89,7 +89,7 @@ ZONE and SUBZONE are determined in tzselect, use them for the following command
 
 > default arch
 
-> editor 0
+> editor no
 
 - `blkid -s PARTUUID -o value /dev/sdxy` find the PARTUUID for your root partition and write it down
 - `create /boot/loader/entries/arch.conf`
@@ -102,7 +102,7 @@ ZONE and SUBZONE are determined in tzselect, use them for the following command
 
 > initrd	/initramfs-linux.img
 
-> options	root=PARTUUID=_<whatever the ID was from the previous command>_ rw
+> options	root=PARTUUID=_whatever the ID was from the previous command_ rw
 
 <br>
 12. Hostname (_myhostname_ == whatever you want your hostname/computer name on the network to be):
